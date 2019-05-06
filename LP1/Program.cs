@@ -7,14 +7,16 @@ namespace LP1
         static void Main(string[] args)
         {
             Board board = new Board();
-            Player player1 = new Player();
-            Player player2 = new Player();
+            Renderer renderer = new Renderer();
+
+
+            renderer.Render(board);
 
             while (true)
             {
                 Position nextMove;
 
-                nextMove = player1.GetPosition(board);
+                //nextMove = player1.GetPosition(board);
             }
         }
     }

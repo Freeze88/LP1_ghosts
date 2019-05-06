@@ -8,13 +8,11 @@ namespace LP1
     {
         public int Row { get; }
         public int Column { get; }
-        public int Color { get; }
 
-        public Position(int row, int column, int color)
+        public Position(int row, int column)
         {
             Row = row;
             Column = column;
-            Color = color;
         }
     }
 }
