@@ -4,52 +4,53 @@ using System.Text;
 
 namespace LP1
 {
-    class Player
+    public class Player
     {
-        private int blue_ghost;
-        private int[,] blue_position = new int[6,2];
-
-        private int red_ghost;
-        private int[] red_position;
-
-        private int yellow_ghost;
-        private int[] yellow_position;
-
-        public Player(int blue, int red, int yellow)
+        public Position GetPosition(Board board)
         {
-            this.blue_ghost = blue;
-            this.red_ghost = red;
-            this.yellow_ghost = yellow;
+            Console.WriteLine("Choose the position you want to put your ghost (0/25) and the color");
+            int position = Convert.ToInt32(Console.ReadLine());
+            int ghost_color = Convert.ToInt32(Console.ReadLine());
+            Position desiredCoordinate = PositionForNumber(position, ghost_color);
+            return desiredCoordinate;
         }
 
-        public void Positions(int pos1, int pos2, int arrayN)
+        private Position PositionForNumber(int position, int color)
         {
-            //blue_position = new int[b,c] {{ pos1, pos2 }, { pos1, pos2 }, { pos1, pos2 } };
-            blue_position[arrayN, 0] = pos1;
-            blue_position[arrayN, 1] = pos2;
-        }
+            switch (position)
+            {
+                case 1: return new Position(0, 0, color); 
+                case 2: return new Position(0, 1, color);
+                case 3: return new Position(0, 2, color);
+                case 4: return new Position(0, 3, color);
+                case 5: return new Position(0, 4, color);
 
-        public int GetGhostsBlue()
-        {
-            return blue_ghost;
-        }
-        public int GetGhostsRed()
-        {
-            return red_ghost;
-        }
-        public int GetGhostsYellow()
-        {
-            return yellow_ghost;
-        }
-        public void Update(int blue, int red, int yellow)
-        {
-            this.blue_ghost = blue;
-            this.red_ghost = red;
-            this.yellow_ghost = yellow;
-        }
-        public int getPos(int i, int c)
-        {
-            return blue_position[i,c];
+                case 6: return new Position(1, 0, color);
+                case 7: return new Position(1, 1, color);
+                case 8: return new Position(1, 2, color);
+                case 9: return new Position(1, 3, color);
+                case 10: return new Position(1, 4, color);
+
+                case 11: return new Position(2, 0, color);
+                case 12: return new Position(2, 1, color);
+                case 13: return new Position(2, 2, color);
+                case 14: return new Position(2, 3, color);
+                case 15: return new Position(2, 4, color);
+
+                case 16: return new Position(3, 0, color);
+                case 17: return new Position(3, 1, color);
+                case 18: return new Position(3, 2, color);
+                case 19: return new Position(3, 3, color);
+                case 20: return new Position(3, 4, color);
+
+                case 21: return new Position(4, 0, color);
+                case 22: return new Position(4, 1, color);
+                case 23: return new Position(4, 2, color);
+                case 24: return new Position(4, 3, color);
+                case 25: return new Position(4, 4, color);
+
+                default: return null;
+            }
         }
     }
 }
