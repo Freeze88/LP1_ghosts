@@ -22,7 +22,7 @@ namespace LP1
 
         public void Colorous()
         {
-            int[,] colors = { {1, 2, 2, 1, 2 }, { 1, 4, 2, 4, 2 } , { 1, 2, 2, 1, 2 } , { 1, 4, 2, 4, 2 } , { 1, 2, 2, 1, 3 } };
+            int[,] colors = { {1, 2, 6, 1, 2 }, { 1, 4, 2, 4, 2 } , { 1, 2, 2, 1, 7 } , { 1, 4, 2, 4, 2 } , { 1, 2, 5, 1, 3 } };
 
             for (int j = 0; j < 5; j++)
             {
@@ -34,6 +34,9 @@ namespace LP1
                         case 2: state[j, i] = State.red; break;
                         case 3: state[j, i] = State.yellow; break;
                         case 4: state[j, i] = State.mirror; break;
+                        case 5: state[j, i] = State.portalBlue; break;
+                        case 6: state[j, i] = State.portalRed; break;
+                        case 7: state[j, i] = State.portalYellow; break;
                     }
                 }
             }
