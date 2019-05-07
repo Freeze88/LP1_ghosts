@@ -6,7 +6,7 @@ namespace LP1
 {
     public class Board
     {
-        private State[,] state;
+        public State[,] state;
         private int[] colors = new int[5];
 
         public Board()
@@ -22,7 +22,7 @@ namespace LP1
 
         public void Colorous()
         {
-            int[,] colors = { {1, 2, 2, 1, 2 }, { 1, 2, 2, 1, 2 } , { 1, 2, 2, 1, 2 } , { 1, 2, 2, 1, 2 } , { 1, 2, 2, 1, 3 } };
+            int[,] colors = { {1, 2, 2, 1, 2 }, { 1, 4, 2, 4, 2 } , { 1, 2, 2, 1, 2 } , { 1, 4, 2, 4, 2 } , { 1, 2, 2, 1, 3 } };
 
             for (int j = 0; j < 5; j++)
             {
