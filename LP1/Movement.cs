@@ -6,7 +6,8 @@ namespace LP1
 {
     class Movement
     {
-        public void moveP1(Player player1)
+        public Combat combat = new Combat();
+        public void MoveP1(Player player1, Player player2)
         {
             Console.WriteLine("Where's the ghost you want to move?");
             int position = Convert.ToInt32(Console.ReadLine());
@@ -26,7 +27,7 @@ namespace LP1
             }
 
         }
-        public void moveP2(Player player2)
+        public void MoveP2(Player player1, Player player2)
         {
             Console.WriteLine("Where's the ghost you want to move?");
             int position = Convert.ToInt32(Console.ReadLine());
@@ -35,6 +36,8 @@ namespace LP1
             Console.WriteLine("Where do you want to put it?");
             position = Convert.ToInt32(Console.ReadLine());
             Position pos2 = CheckPos(position);
+
+            combat.StateChecker(player1, player2);
             if (player2.ghost1.GhostState[pos.Row, pos.Column] != State.none)
             {
                 player2.ghost1.GhostState[pos2.Row, pos2.Column] = player2.ghost1.GhostState[pos.Row, pos.Column];
