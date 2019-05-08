@@ -73,8 +73,8 @@ namespace LP1
 
                     renderer.Render(board);
 
-                    move.moveP1(player1);
-                    move.moveP2(player2);
+                    move.MoveP1(player1, player2);
+                    move.MoveP2(player1, player2);
                 }
 
 

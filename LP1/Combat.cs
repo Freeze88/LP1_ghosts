@@ -4,7 +4,11 @@ using System.Text;
 
 namespace LP1
 {
-    class Combat
+    public class Combat
     {
+        public bool stateChecker(Player player1, Player player2)
+        {
+            return true;
+        }
     }
 }
