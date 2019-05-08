@@ -16,17 +16,26 @@ namespace LP1
 
             Console.WriteLine("Where do you want to put it?");
             position = Convert.ToInt32(Console.ReadLine());
-            Position pos2 = coordinates.CheckPos(position);
-            if (player1.ghost1.GhostState[pos.Row, pos.Column] != State.none)
+            Position pos2 = CheckPos(position);
+
+            bool winner = combat.StateChecker(player1, player2);
+
+            if (winner)
             {
-                player1.ghost1.GhostState[pos2.Row, pos2.Column] = player1.ghost1.GhostState[pos.Row, pos.Column];
-                player1.ghost1.GhostState[pos.Row, pos.Column] = State.none;
+                if (player1.ghost1.GhostState[pos.Row, pos.Column] != State.none)
+                {
+                    player1.ghost1.GhostState[pos2.Row, pos2.Column] = player1.ghost1.GhostState[pos.Row, pos.Column];
+                    player1.ghost1.GhostState[pos.Row, pos.Column] = State.none;
+                }
+                else
+                {
+                    Console.WriteLine("You don't have a ghost there");
+                }
             }
             else
             {
-                Console.WriteLine("You don't have a ghost there");
+                player1.ghost1.GhostState[pos2.Row, pos2.Column] = State.none;
             }
-
         }
         public void MoveP2(Player player1, Player player2)
         {
@@ -39,15 +48,23 @@ namespace LP1
             position = Convert.ToInt32(Console.ReadLine());
             Position pos2 = CheckPos(position);
 
-            combat.StateChecker(player1, player2);
-            if (player2.ghost1.GhostState[pos.Row, pos.Column] != State.none)
+            bool winner = combat.StateChecker(player1, player2);
+
+            if (winner)
             {
-                player2.ghost1.GhostState[pos2.Row, pos2.Column] = player2.ghost1.GhostState[pos.Row, pos.Column];
-                player2.ghost1.GhostState[pos.Row, pos.Column] = State.none;
+                if (player2.ghost1.GhostState[pos.Row, pos.Column] != State.none)
+                {
+                    player2.ghost1.GhostState[pos2.Row, pos2.Column] = player2.ghost1.GhostState[pos.Row, pos.Column];
+                    player2.ghost1.GhostState[pos.Row, pos.Column] = State.none;
+                }
+                else
+                {
+                    Console.WriteLine("You don't have a ghost there");
+                }
             }
             else
             {
-                Console.WriteLine("You don't have a ghost there");
+                player2.ghost1.GhostState[pos2.Row, pos2.Column] = State.none;
             }
         }
 
