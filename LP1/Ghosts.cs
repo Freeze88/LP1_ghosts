@@ -8,7 +8,7 @@ namespace LP1
     public class Ghosts
     {
         public State[,] GhostState;
-
+        
         public Ghosts()
         {
             GhostState = new State[5, 5];

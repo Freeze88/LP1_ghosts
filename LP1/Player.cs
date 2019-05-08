@@ -10,6 +10,9 @@ namespace LP1
         int ghost_color;
         Board board = new Board();
         public Ghosts ghost1 = new Ghosts();
+        int blueGhosts = 0;
+        int redGhosts = 0;
+        int yellowGhosts = 0;
 
         public Position GetPosition(Ghosts ghost)
         {
@@ -68,30 +71,33 @@ namespace LP1
         {
             if (ghost1.GhostState[position.Row, position.Column] == State.none)
             {
-                if (color == 1) // checks if the specific coordinate == the color of the ghost
+                if (color == 1 && blueGhosts < 3) // checks if the specific coordinate == the color of the ghost
                 {
-                    if (board.state[position.Row, position.Column] == State.blue)
+                    if (board.state[position.Row, position.Column] == State.blue )
                     {
+                        blueGhosts++;
                         ghost1.GhostState[position.Row, position.Column] = State.blue;
                         checkIfMatch = true;
                     }
                     else checkIfMatch = false;
                 }
 
-                else if (color == 2)
+                else if (color == 2 && redGhosts < 3)
                 {
-                    if (board.state[position.Row, position.Column] == State.red)
+                    if (board.state[position.Row, position.Column] == State.red )
                     {
+                        redGhosts++;
                         ghost1.GhostState[position.Row, position.Column] = State.red;
                         checkIfMatch = true;
                     }
                     else checkIfMatch = false;
                 }
 
-                else if (color == 3)
+                else if (color == 3 && yellowGhosts < 3)
                 {
-                    if (board.state[position.Row, position.Column] == State.yellow)
+                    if (board.state[position.Row, position.Column] == State.yellow )
                     {
+                        yellowGhosts++;
                         ghost1.GhostState[position.Row, position.Column] = State.yellow;
                         checkIfMatch = true;
                     }
@@ -100,7 +106,8 @@ namespace LP1
 
                 else
                 {
-                    Console.WriteLine("You can only pick 1,2 or 3");
+                    if (color > 3) Console.WriteLine("You can only pick 1,2 or 3");
+                    if (blueGhosts >= 3 || redGhosts >= 3 || yellowGhosts >= 3) Console.WriteLine("You already have 3 ghosts of that color");
                     checkIfMatch = false;
                 }
             }
