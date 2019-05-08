@@ -10,7 +10,7 @@ namespace LP1
             Renderer renderer = new Renderer();
             Ghosts ghosts = new Ghosts();
             Position posP1, posP2;
-
+            WinChecker checker = new WinChecker();
 
 
             Player player1 = new Player();
@@ -18,6 +18,7 @@ namespace LP1
 
             Movement move = new Movement();
 
+            bool loop = true;
             //player1.GetPosition(ghosts);
             for (int i = 0; i < 1; i++)
             {
@@ -49,7 +50,8 @@ namespace LP1
                 {
                     Console.WriteLine("Choose one more position");
                     posP2 = player2.GetPosition(ghosts);
-                    while (player1.ghost1.GhostState[posP2.Row, posP2.Column] == player2.ghost1.GhostState[posP2.Row, posP2.Column])
+                    while (player1.ghost1.GhostState[posP2.Row, posP2.Column] == 
+                        player2.ghost1.GhostState[posP2.Row, posP2.Column])
                     {
                         Console.WriteLine("There's already a player there");
                         player2.ghost1.GhostState[posP2.Row, posP2.Column] = State.none;
@@ -57,8 +59,12 @@ namespace LP1
                     }
                 }
 
-                while (true)
+                while (loop)
                 {
+                    loop = checker.CheckNearExit(player1, player2);
+                    if (loop == false) break;
+
+
                     Console.WriteLine(player1.ghost1.GhostState[0, 0]);
                     Console.WriteLine(player1.ghost1.GhostState[0, 1]);
                     Console.WriteLine(player1.ghost1.GhostState[0, 2]);
@@ -75,6 +81,7 @@ namespace LP1
 
                     move.MoveP1(player1, player2);
                     move.MoveP2(player1, player2);
+
                 }
 
 
