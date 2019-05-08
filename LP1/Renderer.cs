@@ -30,46 +30,16 @@ namespace LP1
 
         }
 
+
         private char SymbolFor(State state)
         {
             switch (state)
             {
-
-                case State.blue:
-                {
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        return 'b';
-                }
-                case State.red:
-                {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        return 'r';
-                }
-                case State.yellow:
-                {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        return 'y';
-                }
-                case State.mirror:
-                {
-                        Console.ResetColor();
-                        return 'm';
-                }
-                case State.portalBlue:
-                    {
-                        
-                        return 'p';
-                    }
-                case State.portalRed:
-                    {
-                        Console.ResetColor();
-                        return 'p';
-                    }
-                case State.portalYellow:
-                    {
-                        Console.ResetColor();
-                        return 'p';
-                    }
+                
+                case State.blue: return 'b';
+                case State.red: return 'r';
+                case State.yellow: return 'y';
+                case State.mirror: return 'm';
                 default: return ' ';
             }
         }

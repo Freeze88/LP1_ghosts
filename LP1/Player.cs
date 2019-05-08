@@ -6,32 +6,83 @@ namespace LP1
 {
     public class Player
     {
-        public Position GetPosition(Board board)
+        bool checkIfMatch;
+        int ghost_color;
+        Board board = new Board();
+        public Ghosts ghost1 = new Ghosts();
+        int blueGhosts = 0;
+        int redGhosts = 0;
+        int yellowGhosts = 0;
+
+        public Position GetPosition(Ghosts ghost)
         {
-            int position = Convert.ToInt32(Console.ReadKey());
-            int ghost_color = Convert.ToInt32(Console.ReadKey());
-            Position desiredCoordinate = PositionForNumber(position);
-            compare(board);
+            Coordinates coordinates = new Coordinates();
+
+            int position = Convert.ToInt32(Console.ReadLine());
+            ghost_color = Convert.ToInt32(Console.ReadLine());
+            Position desiredCoordinate = coordinates.CheckPos(position);
+
+            compare(board, desiredCoordinate, ghost_color);
+
+            while (checkIfMatch != true)
+            {
+                Console.WriteLine("Please choose a valid place to put your ghost");
+                GetPosition(ghost);
+            }
             return desiredCoordinate;
         }
 
-        private Position PositionForNumber(int position)
-        {
-            
-            switch (position)
-            {
-                case 1: return new Position(2, 0); 
-                case 2: return new Position(2, 1);
-                default:return null;
-            }
-        }
+        
 
-        private void compare(Board board)
+        public void compare(Board board, Position position, int color)
         {
-            if (board.state[1, 1] == State.blue)
+            if (ghost1.GhostState[position.Row, position.Column] == State.none)
             {
-            }
+                if (color == 1 && blueGhosts < 3) // checks if the specific coordinate == the color of the ghost
+                {
+                    if (board.state[position.Row, position.Column] == State.blue )
+                    {
+                        blueGhosts++;
+                        ghost1.GhostState[position.Row, position.Column] = State.blue;
+                        checkIfMatch = true;
+                    }
+                    else checkIfMatch = false;
+                }
 
+                else if (color == 2 && redGhosts < 3)
+                {
+                    if (board.state[position.Row, position.Column] == State.red )
+                    {
+                        redGhosts++;
+                        ghost1.GhostState[position.Row, position.Column] = State.red;
+                        checkIfMatch = true;
+                    }
+                    else checkIfMatch = false;
+                }
+
+                else if (color == 3 && yellowGhosts < 3)
+                {
+                    if (board.state[position.Row, position.Column] == State.yellow )
+                    {
+                        yellowGhosts++;
+                        ghost1.GhostState[position.Row, position.Column] = State.yellow;
+                        checkIfMatch = true;
+                    }
+                    else checkIfMatch = false;
+                }
+
+                else
+                {
+                    if (color > 3) Console.WriteLine("You can only pick 1,2 or 3");
+                    if (blueGhosts >= 3 || redGhosts >= 3 || yellowGhosts >= 3) Console.WriteLine("You already have 3 ghosts of that color");
+                    checkIfMatch = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("yha cannot do that");
+                checkIfMatch = false;
+            }
         }
     }
 }
