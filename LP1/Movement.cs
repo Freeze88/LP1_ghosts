@@ -37,9 +37,9 @@ namespace LP1
 
             Console.WriteLine("Where do you want to put it?");
             position = Convert.ToInt32(Console.ReadLine());
-            Position pos2 = CheckPos(position);
+            Position pos2 = coordinates.CheckPos(position);
 
-            combat.StateChecker(player1, player2);
+            bool winner = combat.StateChecker(player1, player2);
             if (player2.ghost1.GhostState[pos.Row, pos.Column] != State.none)
             {
                 player2.ghost1.GhostState[pos2.Row, pos2.Column] = player2.ghost1.GhostState[pos.Row, pos.Column];

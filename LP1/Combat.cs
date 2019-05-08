@@ -6,7 +6,7 @@ namespace LP1
 {
     public class Combat
     {
-        public bool stateChecker(Player player1, Player player2)
+        public bool StateChecker(Player player1, Player player2)
         {
             return true;
         }
