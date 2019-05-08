@@ -33,9 +33,7 @@ namespace LP1
                         case 2: state[j, i] = State.red; break;
                         case 3: state[j, i] = State.yellow; break;
                         case 4: state[j, i] = State.mirror; break;
-                        case 5: state[j, i] = State.portalBlue; break;
-                        case 6: state[j, i] = State.portalRed; break;
-                        case 7: state[j, i] = State.portalYellow; break;
+
                     }
                 }
             }
