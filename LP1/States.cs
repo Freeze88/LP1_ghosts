@@ -11,6 +11,9 @@ namespace LP1
         blue,
         red,
         yellow,
-        mirror
+        mirror,
+        portalBlue,
+        portalRed,
+        portalYellow
     }
 }
