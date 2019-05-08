@@ -9,23 +9,68 @@ namespace LP1
             Board board = new Board();
             Renderer renderer = new Renderer();
             Player player1 = new Player();
+            Player player2 = new Player();
+            Ghosts ghosts = new Ghosts();
 
+            Position posP1, posP2;
 
 
             while (true)
             {
                 renderer.Render(board);
 
-                int a = player1.GetColor();
+                //player1.GetPosition(ghosts);
+                for (int i = 0; i < 18; i++)
+                {
+                    Console.WriteLine("Player 1 Turn");
+                    posP1 = player1.GetPosition(ghosts);
 
-                Position[] nextMove = { player1.GetPosition(board) };
-                
-                Console.WriteLine(nextMove[0].Row +1);
-                Console.WriteLine(nextMove[0].Column +1);
-                Console.WriteLine(a);
+                    while (player1.ghost1.GhostState[posP1.Row, posP1.Column]
+                        == player2.ghost1.GhostState[posP1.Row, posP1.Column])
+                    {
+                        Console.WriteLine("There's already a player there");
+                        player1.ghost1.GhostState[posP1.Row, posP1.Column] = State.none;
+                        posP1 = player1.GetPosition(ghosts);
+                    }
+                    
+                    Console.WriteLine("Player 2 Turn");
+                    posP2 = player2.GetPosition(ghosts);
+
+                    while (player1.ghost1.GhostState[posP2.Row, posP2.Column] 
+                        == player2.ghost1.GhostState[posP2.Row, posP2.Column])
+                    {
+                        Console.WriteLine("There's already a player there");
+                        player2.ghost1.GhostState[posP2.Row, posP2.Column] = State.none;
+                        posP2 = player2.GetPosition(ghosts);
+                    }
+
+                    if (i == 0)
+                    {
+                        Console.WriteLine("Choose one more position");
+                        posP2 = player2.GetPosition(ghosts);
+                        while (player1.ghost1.GhostState[posP2.Row, posP2.Column] == player2.ghost1.GhostState[posP2.Row, posP2.Column])
+                        {
+                            Console.WriteLine("There's already a player there");
+                            player2.ghost1.GhostState[posP2.Row, posP2.Column] = State.none;
+                            player2.GetPosition(ghosts);
+                        }
+                    }
+                }
+
+                Console.WriteLine(player1.ghost1.GhostState[0, 0]);
+                Console.WriteLine(player1.ghost1.GhostState[0, 1]);
+                Console.WriteLine(player1.ghost1.GhostState[0, 2]);
+                Console.WriteLine(player1.ghost1.GhostState[0, 3]);
+                Console.WriteLine(player1.ghost1.GhostState[0, 4]);
+                Console.WriteLine("\n");
+                Console.WriteLine(player2.ghost1.GhostState[0, 0]);
+                Console.WriteLine(player2.ghost1.GhostState[0, 1]);
+                Console.WriteLine(player2.ghost1.GhostState[0, 2]);
+                Console.WriteLine(player2.ghost1.GhostState[0, 3]);
+                Console.WriteLine(player2.ghost1.GhostState[0, 4]);
             }
         }
-        private void AssociateColor()
+        private void CheckPositions()
         {
 
         }

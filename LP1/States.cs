@@ -7,6 +7,7 @@ namespace LP1
     
     public enum State
     {
+        none,
         blue,
         red,
         yellow,

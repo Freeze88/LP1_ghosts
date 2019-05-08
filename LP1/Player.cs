@@ -7,26 +7,24 @@ namespace LP1
     public class Player
     {
         bool checkIfMatch;
-        public int ghost_color;
+        int ghost_color;
+        Board board = new Board();
+        public Ghosts ghost1 = new Ghosts();
 
-        public Position GetPosition(Board board)
+        public Position GetPosition(Ghosts ghost)
         {
             int position = Convert.ToInt32(Console.ReadLine());
             ghost_color = Convert.ToInt32(Console.ReadLine());
             Position desiredCoordinate = PositionForNumber(position);
 
             compare(board, desiredCoordinate, ghost_color);
+
             while (checkIfMatch != true)
             {
                 Console.WriteLine("Please choose a valid place to put your ghost");
-                GetPosition(board);
+                GetPosition(ghost);
             }
             return desiredCoordinate;
-        }
-
-        public int GetColor()
-        {
-            return ghost_color;
         }
 
         private Position PositionForNumber(int position)
@@ -66,38 +64,50 @@ namespace LP1
             }
         }
 
-        private void compare(Board board, Position position, int color)
+        public void compare(Board board, Position position, int color)
         {
-            if (color == 1) // checks if the specific coordinate == the color of the ghost
+            if (ghost1.GhostState[position.Row, position.Column] == State.none)
             {
-                if (board.state[position.Row, position.Column] == State.blue)
+                if (color == 1) // checks if the specific coordinate == the color of the ghost
                 {
-                    Console.WriteLine("Is a valid move");
-                    checkIfMatch = true;
+                    if (board.state[position.Row, position.Column] == State.blue)
+                    {
+                        ghost1.GhostState[position.Row, position.Column] = State.blue;
+                        checkIfMatch = true;
+                    }
+                    else checkIfMatch = false;
                 }
-                else checkIfMatch = false;
-            }
-            else if (color == 2)
-            {
-                if (board.state[position.Row, position.Column] == State.red)
+
+                else if (color == 2)
                 {
-                    Console.WriteLine("Is a valid move");
-                    checkIfMatch = true;
+                    if (board.state[position.Row, position.Column] == State.red)
+                    {
+                        ghost1.GhostState[position.Row, position.Column] = State.red;
+                        checkIfMatch = true;
+                    }
+                    else checkIfMatch = false;
                 }
-                else checkIfMatch = false;
-            }
-            else if (color == 3)
-            {
-                if (board.state[position.Row, position.Column] == State.yellow)
+
+                else if (color == 3)
                 {
-                    Console.WriteLine("Is a valid move");
-                    checkIfMatch = true;
+                    if (board.state[position.Row, position.Column] == State.yellow)
+                    {
+                        ghost1.GhostState[position.Row, position.Column] = State.yellow;
+                        checkIfMatch = true;
+                    }
+                    else checkIfMatch = false;
                 }
-                else checkIfMatch = false;
+
+                else
+                {
+                    Console.WriteLine("You can only pick 1,2 or 3");
+                    checkIfMatch = false;
+                }
             }
             else
             {
-                Console.WriteLine("You can only pick 1,2 or 3");
+                Console.WriteLine("yha cannot do that");
+                checkIfMatch = false;
             }
         }
     }
