@@ -7,6 +7,7 @@ namespace LP1
     
     public enum State
     {
+        none,
         blue,
         red,
         yellow,
@@ -14,5 +15,6 @@ namespace LP1
         portalBlue,
         portalRed,
         portalYellow
+
     }
 }

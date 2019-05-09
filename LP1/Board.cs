@@ -7,7 +7,6 @@ namespace LP1
     public class Board
     {
         public State[,] state;
-        private int[] colors = new int[5];
 
         public Board()
         {
@@ -22,7 +21,7 @@ namespace LP1
 
         public void Colorous()
         {
-            int[,] colors = { {1, 2, 6, 1, 2 }, { 1, 4, 2, 4, 2 } , { 1, 2, 2, 1, 7 } , { 1, 4, 2, 4, 2 } , { 1, 2, 5, 1, 3 } };
+            int[,] colors = { {1, 2, 6, 1, 2 }, { 3, 4, 3, 4, 3 } , { 2, 1, 2, 1, 7 } , { 1, 4, 3, 4, 2 } , { 3, 2, 5, 1, 3 } };
 
             for (int j = 0; j < 5; j++)
             {
@@ -38,25 +37,9 @@ namespace LP1
                         case 6: state[j, i] = State.portalRed; break;
                         case 7: state[j, i] = State.portalYellow; break;
                     }
+
                 }
             }
         }
-
-        /*public State GetStateColor(int[] color)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine(color[i]);
-
-                /*switch (colors[i])
-                {
-                    case 1: state[0, i] = State.blue; break;
-                    case 2: state[0, i] = State.red; break;
-                    case 3: state[0, i] = State.yellow; break;
-                    case 4: state[0, i] = State.mirror; break;
-                }
-            }
-            return 0;
-        }*/
     }
 }
