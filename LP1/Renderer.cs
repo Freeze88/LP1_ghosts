@@ -5,30 +5,31 @@ using System.Text;
 namespace LP1
 {
     /// <summary>
-    /// This class is used to draw the Board and all symbols
+    /// This class is used to draw the Board and all the symbols
     /// </summary>
     public class Renderer
     {
         /// <summary>
         /// This method draws the Board
         /// </summary>
-        /// <param name="board"> board</param>
-        /// <param name="player1">player 1</param>
-        /// <param name="player2"> player 2</param>
+        /// <param name="board">gets all the information about the board</param>
+        /// <param name="player1">Gets the player 1</param>
+        /// <param name="player2">Gets the player 2</param>
         public void Render(Board board, Player player1, Player player2)
         {
-            //
+            //Creates an Array with the size of the field
             string[,] symbols = new string[5, 5];
-            //
+            //Creates a for loop 5 in size
             for (int row = 0; row < 5; row++)
-                //
+                //Creates a for loop 5 in size
                 for (int column = 0; column < 5; column++)
-                    //
+                    //Gets a symbol acording to the state on the board and saves it in the Array
                     symbols[row, column] = SymbolFor(board.GetState(new Position(row, column)));
-            //
+
+            //A for loop that generates the board vertical strip by vertical strip
             for (int b = 0; b < 5; b++)
             {
-                //Draw the top parte of the board
+                //Draw the top part of the board
                 Console.WriteLine(" +---------+---------+---------+---------+---------+");
                 //Draw the Symbol of the cell metioned on Board
                 Console.WriteLine($" |    { symbols[b, 0]}    |    { symbols[b, 1]}    " +
@@ -56,8 +57,8 @@ namespace LP1
         /// <summary>
         /// This method draws the symbols of each State
         /// </summary>
-        /// <param name="state">Não sei o que escrever aqui</param>
-        /// <returns></returns>
+        /// <param name="state">Gets the information about the state of the board</param>
+        /// <returns>A character</returns>
         private string SymbolFor(State state)
         {
             /*Draws the symbol on the cell according tho the state mention on
@@ -75,7 +76,7 @@ namespace LP1
                 case State.mirror: return "m";
                 //If the State is portal, prints the letter "O"
                 case State.portal: return "O";
-                //If nothin is mentioned on state, prints nothin on the cell
+                //If nothing is mentioned on state, prints nothin on the cell
                 default: return " ";
             }
         }

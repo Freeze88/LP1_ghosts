@@ -45,32 +45,52 @@ namespace LP1
             {
                 //Draws the field
                 renderer.Render(board, player1, player2);
-                //checks if the Player1 ghost is near an exit
+                //checks if the Player1 or player 2 ghost is near an exit
                 loop = checker.CheckNearExit(player1, move, 1);
                 loop = checker.CheckNearExit(player2, move, 2);
+                //If a player wins ends the loop
                 if (loop == false) break;
 
+                //Sends the user a message
                 Console.WriteLine("What do you want to do?\n1 - move a ghost\n2 - get a ghost from the dungeon");
 
+                //Looks for input of the user
                 int input = Convert.ToInt32(Console.ReadLine());
+                //Checks if the turn is 1
                 if (turn == 1)
                 {
+                    //sends the user a message
                     Console.WriteLine("Player 1 Turn");
+                    //If the input is 1 the player can move a ghost
                     if (input == 1) move.Move(player1, player2);
+                    //If the input is 2 the player can put a new ghost
                     else if (input == 2) player1.GetPosition(player1, ghosts, false);
+                    //Checks if the user put a correct input, passes the turns
                     if (input == 1 || input == 2) turn++;
+                    //If the condition is not met sends the user a warning
                     else Console.WriteLine("Please insert 1 or 2");
+                    //**The user was supposed to be asked again after this but it does not**//
                 }
+
+                //Looks for input of the user
                 input = Convert.ToInt32(Console.ReadLine());
+                //Checks if the turn is 1
                 if (turn == 2)
                 {
+                    //sends the user a message
                     Console.WriteLine("Player 2 Turn");
+                    //If the input is 1 the player can move a ghost
                     if (input == 1) move.Move(player2, player1);
+                    //If the input is 2 the player can put a new ghost
                     else if (input == 2) player2.GetPosition(player1, ghosts, false);
+                    //Checks if the user put a correct input, passes the turns
                     if (input == 1 || input == 2) turn--;
+                    //If the condition is not met sends the user a warning
                     else Console.WriteLine("Please insert 1 or 2");
+                    //**The user was supposed to be asked again after this but it does not**//
                 }
             }
+            //Stops the program from closing automatically after winning
             Console.ReadLine();
         }
     }
