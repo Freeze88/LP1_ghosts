@@ -4,11 +4,19 @@ using System.Text;
 
 namespace LP1
 {
+    /// <summary>
+    /// This class convert the player' input and stores them in a new Position
+    /// </summary>
     class Coordinates
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public Position CheckPos(int position)
         {
+            //
             switch (position)
             {
                 case 1: return new Position(0, 0);
@@ -40,6 +48,7 @@ namespace LP1
                 case 23: return new Position(4, 2);
                 case 24: return new Position(4, 3);
                 case 25: return new Position(4, 4);
+                //
                 default: return null;
             }
         }
