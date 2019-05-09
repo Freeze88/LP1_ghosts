@@ -16,7 +16,7 @@ namespace LP1
             int position = Convert.ToInt32(Console.ReadLine());
             Position pos = coordinates.CheckPos(position);
 
-            Console.WriteLine("Where do you want to put it?");                                    
+            Console.WriteLine("Where do you want to put it?");
             int position2 = Convert.ToInt32(Console.ReadLine());
             if (position + 5 == position2 || position - 5 == position2 ||
                 position + 1 == position2 || position - 1 == position2)

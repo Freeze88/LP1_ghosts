@@ -21,13 +21,13 @@ namespace LP1
 
         public void Colorous()
         {
-            int[,] colors = { {1, 2, 5, 1, 2 }, { 3, 4, 3, 4, 3 } , { 2, 1, 2, 1, 5 } , { 1, 4, 3, 4, 2 } , { 3, 2, 5, 1, 3 } };
+            int[,] colors = { { 1, 2, 5, 1, 2 }, { 3, 4, 3, 4, 3 }, { 2, 1, 2, 1, 5 }, { 1, 4, 3, 4, 2 }, { 3, 2, 5, 1, 3 } };
 
             for (int j = 0; j < 5; j++)
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    switch (colors[j,i])
+                    switch (colors[j, i])
                     {
                         case 1: state[j, i] = State.blue; break;
                         case 2: state[j, i] = State.red; break;

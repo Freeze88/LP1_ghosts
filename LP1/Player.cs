@@ -8,7 +8,7 @@ namespace LP1
     {
         Board board = new Board();
         public Ghosts ghost1 = new Ghosts();
-        
+
         private int blueGhosts = 0;
         private int redGhosts = 0;
         private int yellowGhosts = 0;
@@ -37,7 +37,7 @@ namespace LP1
             {
                 if (color == 1 && blueGhosts < 3) // checks if the specific coordinate == the color of the ghost
                 {
-                    if (board.state[position.Row, position.Column] == State.blue )
+                    if (board.state[position.Row, position.Column] == State.blue)
                     {
                         blueGhosts++;
                         ghost1.GhostState[position.Row, position.Column] = State.blue;
@@ -47,7 +47,7 @@ namespace LP1
                 }
                 else if (color == 2 && redGhosts < 3)
                 {
-                    if (board.state[position.Row, position.Column] == State.red )
+                    if (board.state[position.Row, position.Column] == State.red)
                     {
                         redGhosts++;
                         ghost1.GhostState[position.Row, position.Column] = State.red;
@@ -57,7 +57,7 @@ namespace LP1
                 }
                 else if (color == 3 && yellowGhosts < 3)
                 {
-                    if (board.state[position.Row, position.Column] == State.yellow )
+                    if (board.state[position.Row, position.Column] == State.yellow)
                     {
                         yellowGhosts++;
                         ghost1.GhostState[position.Row, position.Column] = State.yellow;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LP1
 {
-    
+
     public enum State
     {
         none,
