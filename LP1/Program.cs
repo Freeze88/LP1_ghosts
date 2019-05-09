@@ -10,18 +10,16 @@ namespace LP1
             Renderer renderer = new Renderer();
             Ghosts ghosts = new Ghosts();
             Position posP1, posP2;
-
-
-
+            WinChecker checker = new WinChecker();
             Player player1 = new Player();
             Player player2 = new Player();
-
             Movement move = new Movement();
 
-            //player1.GetPosition(ghosts);
+            bool loop = true;
+
             for (int i = 0; i < 1; i++)
             {
-                renderer.Render(board,player1,player2);
+                renderer.Render(board, player1, player2);
 
                 Console.WriteLine("Player 1 Turn");
                 posP1 = player1.GetPosition(ghosts);
@@ -49,7 +47,8 @@ namespace LP1
                 {
                     Console.WriteLine("Choose one more position");
                     posP2 = player2.GetPosition(ghosts);
-                    while (player1.ghost1.GhostState[posP2.Row, posP2.Column] == player2.ghost1.GhostState[posP2.Row, posP2.Column])
+                    while (player1.ghost1.GhostState[posP2.Row, posP2.Column] ==
+                        player2.ghost1.GhostState[posP2.Row, posP2.Column])
                     {
                         Console.WriteLine("There's already a player there");
                         player2.ghost1.GhostState[posP2.Row, posP2.Column] = State.none;
@@ -57,29 +56,16 @@ namespace LP1
                     }
                 }
 
-                while (true)
+                while (loop)
                 {
-                    /*
-                    Console.WriteLine(player1.ghost1.GhostState[0, 0]);
-                    Console.WriteLine(player1.ghost1.GhostState[0, 1]);
-                    Console.WriteLine(player1.ghost1.GhostState[0, 2]);
-                    Console.WriteLine(player1.ghost1.GhostState[0, 3]);
-                    Console.WriteLine(player1.ghost1.GhostState[0, 4]);
-                    Console.WriteLine("\n");
-                    Console.WriteLine(player2.ghost1.GhostState[0, 0]);
-                    Console.WriteLine(player2.ghost1.GhostState[0, 1]);
-                    Console.WriteLine(player2.ghost1.GhostState[0, 2]);
-                    Console.WriteLine(player2.ghost1.GhostState[0, 3]);
-                    Console.WriteLine(player2.ghost1.GhostState[0, 4]);
-                    */
-                    renderer.Render(board,player1,player2);
+                    loop = checker.CheckNearExit(player1, player2, move);
+                    loop = checker.CheckNearExit(player2, player1, move);
+                    if (loop == false) break;
 
 
-                    move.MoveP1(player1, player2);
-                    move.MoveP2(player1, player2);
+                    move.Move(player1, player2);
+                    move.Move(player2, player1);
                 }
-                
-
             }
         }
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LP1
 {
-    
+
     public enum State
     {
         none,
@@ -12,9 +12,6 @@ namespace LP1
         red,
         yellow,
         mirror,
-        portalBlue,
-        portalRed,
-        portalYellow
-
+        portal,
     }
 }
