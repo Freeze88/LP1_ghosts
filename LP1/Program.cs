@@ -20,7 +20,8 @@ namespace LP1
             for (int i = 0; i < 1; i++)
             {
                 renderer.Render(board, player1, player2);
-                Console.WriteLine("First choose a position: 1 - 25\nThen choose a color:\n1 - blue\n2 - red\n3 - Yellow");
+                Console.WriteLine("First choose a position: 1 - 25\nThen choose" +
+                    " a color:\n1 - blue\n2 - red\n3 - Yellow");
                 Console.WriteLine("Player 1 Turn:");
                 posP1 = player1.GetPosition(ghosts);
 

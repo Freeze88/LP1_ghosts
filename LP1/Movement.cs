@@ -29,7 +29,8 @@ namespace LP1
                     player1.ghost1.GhostState[pos2.Row, pos2.Column] !=
                     player1.ghost1.GhostState[pos.Row, pos.Column])
                 {
-                    player1.ghost1.GhostState[pos2.Row, pos2.Column] = player1.ghost1.GhostState[pos.Row, pos.Column];
+                    player1.ghost1.GhostState[pos2.Row, pos2.Column] =
+                        player1.ghost1.GhostState[pos.Row, pos.Column];
                     player1.ghost1.GhostState[pos.Row, pos.Column] = State.none;
                 }
             }

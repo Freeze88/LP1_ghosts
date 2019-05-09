@@ -4,6 +4,9 @@ using System.Text;
 
 namespace LP1
 {
+    /// <summary>
+    /// This class is used to draw the Board and all symbols
+    /// </summary>
     public class Renderer
     {
         public void Render(Board board, Player player1, Player player2)
@@ -16,12 +19,23 @@ namespace LP1
             for (int b = 0; b < 5; b++)
             {
                 Console.WriteLine(" +---------+---------+---------+---------+---------+");
-                Console.WriteLine($" |    { symbols[b, 0]}    |    { symbols[b, 1]}    |    { symbols[b, 2]}    |    { symbols[b, 3]}    |    { symbols[b, 4]}    | ");
-                Console.WriteLine($" | p1 {player1.ghost1.GhostState[b, 0]} | p1 {player1.ghost1.GhostState[b, 1]} | p1 {player1.ghost1.GhostState[b, 2]} | p1 {player1.ghost1.GhostState[b, 3]} | p1 {player1.ghost1.GhostState[b, 4]} | ");
-                Console.WriteLine($" | p2 {player2.ghost1.GhostState[b, 0]} | p2 {player2.ghost1.GhostState[b, 1]} | p2 {player2.ghost1.GhostState[b, 2]} | p2 {player2.ghost1.GhostState[b, 3]} | p2 {player2.ghost1.GhostState[b, 4]} | ");
+                Console.WriteLine($" |    { symbols[b, 0]}    |    { symbols[b, 1]}    " +
+                    $"|    { symbols[b, 2]}    |    { symbols[b, 3]}    |" +
+                    $"    { symbols[b, 4]}    | ");
+                Console.WriteLine($" | p1 {player1.ghost1.GhostState[b, 0]} |" +
+                    $" p1 {player1.ghost1.GhostState[b, 1]} |" +
+                    $" p1 {player1.ghost1.GhostState[b, 2]} |" +
+                    $" p1 {player1.ghost1.GhostState[b, 3]} |" +
+                    $" p1 {player1.ghost1.GhostState[b, 4]} | ");
+                Console.WriteLine($" | p2 {player2.ghost1.GhostState[b, 0]} |" +
+                    $" p2 {player2.ghost1.GhostState[b, 1]} |" +
+                    $" p2 {player2.ghost1.GhostState[b, 2]} |" +
+                    $" p2 {player2.ghost1.GhostState[b, 3]} |" +
+                    $" p2 {player2.ghost1.GhostState[b, 4]} | ");
             }
             Console.WriteLine(" +---------+---------+---------+---------+---------+");
         }
+
         private string SymbolFor(State state)
         {
             switch (state)

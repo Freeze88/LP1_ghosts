@@ -68,7 +68,8 @@ namespace LP1
                 else
                 {
                     if (color > 3) Console.WriteLine("You can only pick 1,2 or 3");
-                    if (blueGhosts >= 3 || redGhosts >= 3 || yellowGhosts >= 3) Console.WriteLine("You already have 3 ghosts of that color");
+                    if (blueGhosts >= 3 || redGhosts >= 3 || yellowGhosts >= 3)
+                        Console.WriteLine("You already have 3 ghosts of that color");
                     checkIfMatch = false;
                 }
             }

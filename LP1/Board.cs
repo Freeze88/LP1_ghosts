@@ -4,6 +4,9 @@ using System.Text;
 
 namespace LP1
 {
+    /// <summary>
+    /// This class creats a new State and saves 
+    /// </summary>
     public class Board
     {
         public State[,] state;
@@ -21,7 +24,8 @@ namespace LP1
 
         public void Colorous()
         {
-            int[,] colors = { { 1, 2, 5, 1, 2 }, { 3, 4, 3, 4, 3 }, { 2, 1, 2, 1, 5 }, { 1, 4, 3, 4, 2 }, { 3, 2, 5, 1, 3 } };
+            int[,] colors = { { 1, 2, 5, 1, 2 }, { 3, 4, 3, 4, 3 }, 
+                { 2, 1, 2, 1, 5 }, { 1, 4, 3, 4, 2 }, { 3, 2, 5, 1, 3 } };
 
             for (int j = 0; j < 5; j++)
             {
