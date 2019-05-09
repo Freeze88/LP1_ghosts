@@ -9,50 +9,48 @@ namespace LP1
     /// </summary>
     public class WinChecker
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="player1"></param>
-        /// <param name="player2"></param>
-        /// <param name="move"></param>
-        /// <returns></returns>
-        public bool CheckNearExit(Player player1, Player player2, Movement move)
+        public bool CheckNearExit(Player targetPlayer, Movement move, int playerNumber)
         {
             //
             int rotation = move.combat.rotation; 
-            //
-            Console.WriteLine(rotation);
-            //
-            if (player1.ghost1.GhostState[0, 4] == State.red && rotation == 1 ||
-                player1.ghost1.GhostState[1, 3] == State.red && rotation == 2 ||
-                player1.ghost1.GhostState[0, 2] == State.red && rotation == 3)
+            
+            if (targetPlayer.ghost1.GhostState[0, 3] == State.red && rotation == 1 ||
+                targetPlayer.ghost1.GhostState[1, 2] == State.red && rotation == 2 ||
+                targetPlayer.ghost1.GhostState[0, 1] == State.red && rotation == 3)
             {
-                //
-                Console.WriteLine("Player 1 wins");
-                //
-                return false;
+                if (rotation == 1) targetPlayer.ghost1.GhostState[0, 3] = State.none;
+                if (rotation == 2) targetPlayer.ghost1.GhostState[1, 2] = State.none;
+                if (rotation == 3) targetPlayer.ghost1.GhostState[0, 1] = State.none;
+
+                targetPlayer.redGhosts ++;
+                Console.WriteLine("\n Player {0} wins", playerNumber);
             }
-            //
-            if (player1.ghost1.GhostState[4, 1] == State.blue && rotation == 1 ||
-                player1.ghost1.GhostState[3, 2] == State.blue && rotation == 2 ||
-                player1.ghost1.GhostState[4, 3] == State.blue && rotation == 3)
+
+            if (targetPlayer.ghost1.GhostState[4, 1] == State.blue && rotation == 1 ||
+                targetPlayer.ghost1.GhostState[3, 2] == State.blue && rotation == 2 ||
+                targetPlayer.ghost1.GhostState[4, 3] == State.blue && rotation == 3)
             {
-                //
-                Console.WriteLine("Player 1 wins");
-                //
-                return false;
+                if (rotation == 1) targetPlayer.ghost1.GhostState[4, 1] = State.none;
+                if (rotation == 2) targetPlayer.ghost1.GhostState[3, 2] = State.none;
+                if (rotation == 3) targetPlayer.ghost1.GhostState[4, 3] = State.none;
+
+                targetPlayer.blueGhosts++;
+                Console.WriteLine("\n Player {0} wins", playerNumber);
             }
-            //
-            if (player1.ghost1.GhostState[3, 4] == State.yellow && rotation == 1 ||
-                player1.ghost1.GhostState[2, 3] == State.yellow && rotation == 2 ||
-                player1.ghost1.GhostState[1, 4] == State.yellow && rotation == 3)
+
+            if (targetPlayer.ghost1.GhostState[3, 4] == State.yellow && rotation == 1 ||
+                targetPlayer.ghost1.GhostState[2, 3] == State.yellow && rotation == 2 ||
+                targetPlayer.ghost1.GhostState[1, 4] == State.yellow && rotation == 3)
             {
-                //
-                Console.WriteLine("Player 1 wins");
-                //
-                return false;
+                if (rotation == 1) targetPlayer.ghost1.GhostState[3, 4] = State.none;
+                if (rotation == 2) targetPlayer.ghost1.GhostState[2, 3] = State.none;
+                if (rotation == 3) targetPlayer.ghost1.GhostState[1, 4] = State.none;
+
+                targetPlayer.yellowGhosts++;
+                Console.WriteLine("\n Player {0} wins", playerNumber);
             }
-            //
+            if (targetPlayer.redGhosts >= 3 || targetPlayer.blueGhosts >= 3 ||
+                targetPlayer.yellowGhosts >= 3) return false;
             return true;
         }
     }
