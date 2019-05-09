@@ -17,8 +17,8 @@ namespace LP1
             {
                 Console.WriteLine(" +---------+---------+---------+---------+---------+");
                 Console.WriteLine($" |    { symbols[b, 0]}    |    { symbols[b, 1]}    |    { symbols[b, 2]}    |    { symbols[b, 3]}    |    { symbols[b, 4]}    | ");
-                Console.WriteLine($" | p1 {player1.ghost1.GhostState[b, 0]} | p1 {player1.ghost1.GhostState[b, 1]} | p1 {player1.ghost1.GhostState[b, 2]}  | p1 {player1.ghost1.GhostState[b, 3]} | p1 {player1.ghost1.GhostState[b, 4]} | ");
-                Console.WriteLine($" | p2 {player2.ghost1.GhostState[b, 0]} | p2 {player2.ghost1.GhostState[b, 1]} | p2 {player2.ghost1.GhostState[b, 2]}  | p2 {player2.ghost1.GhostState[b, 3]} | p2 {player2.ghost1.GhostState[b, 4]} | ");
+                Console.WriteLine($" | p1 {player1.ghost1.GhostState[b, 0]} | p1 {player1.ghost1.GhostState[b, 1]} | p1 {player1.ghost1.GhostState[b, 2]} | p1 {player1.ghost1.GhostState[b, 3]} | p1 {player1.ghost1.GhostState[b, 4]} | ");
+                Console.WriteLine($" | p2 {player2.ghost1.GhostState[b, 0]} | p2 {player2.ghost1.GhostState[b, 1]} | p2 {player2.ghost1.GhostState[b, 2]} | p2 {player2.ghost1.GhostState[b, 3]} | p2 {player2.ghost1.GhostState[b, 4]} | ");
             }
             Console.WriteLine(" +---------+---------+---------+---------+---------+");
         }
@@ -30,7 +30,7 @@ namespace LP1
                 case State.red: return "r";
                 case State.yellow: return "y";
                 case State.mirror: return "m";
-                case State.portal: return "Ob";
+                case State.portal: return "O";
                 default: return " ";
             }
         }

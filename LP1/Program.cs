@@ -20,8 +20,8 @@ namespace LP1
             for (int i = 0; i < 1; i++)
             {
                 renderer.Render(board, player1, player2);
-
-                Console.WriteLine("Player 1 Turn");
+                Console.WriteLine("First choose a position: 1 - 25\nThen choose a color:\n1 - blue\n2 - red\n3 - Yellow");
+                Console.WriteLine("Player 1 Turn:");
                 posP1 = player1.GetPosition(ghosts);
 
                 while (player1.ghost1.GhostState[posP1.Row, posP1.Column]
@@ -32,7 +32,7 @@ namespace LP1
                     posP1 = player1.GetPosition(ghosts);
                 }
 
-                Console.WriteLine("Player 2 Turn");
+                Console.WriteLine("Player 2 Turn:");
                 posP2 = player2.GetPosition(ghosts);
 
                 while (player1.ghost1.GhostState[posP2.Row, posP2.Column]
@@ -58,9 +58,10 @@ namespace LP1
 
                 while (loop)
                 {
+                    renderer.Render(board, player1, player2);
                     loop = checker.CheckNearExit(player1, player2, move);
                     loop = checker.CheckNearExit(player2, player1, move);
-                    if (loop == false) break;
+                    //if (loop == false) break;
 
 
                     move.Move(player1, player2);
