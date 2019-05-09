@@ -6,23 +6,23 @@ namespace LP1
 {
     public class Player
     {
-        bool checkIfMatch;
-        int ghost_color;
         Board board = new Board();
         public Ghosts ghost1 = new Ghosts();
-        int blueGhosts = 0;
-        int redGhosts = 0;
-        int yellowGhosts = 0;
+        
+        private int blueGhosts = 0;
+        private int redGhosts = 0;
+        private int yellowGhosts = 0;
+        private bool checkIfMatch;
 
         public Position GetPosition(Ghosts ghost)
         {
             Coordinates coordinates = new Coordinates();
 
             int position = Convert.ToInt32(Console.ReadLine());
-            ghost_color = Convert.ToInt32(Console.ReadLine());
+            int ghost_color = Convert.ToInt32(Console.ReadLine());
             Position desiredCoordinate = coordinates.CheckPos(position);
 
-            compare(board, desiredCoordinate, ghost_color);
+            Compare(board, desiredCoordinate, ghost_color);
 
             while (checkIfMatch != true)
             {
@@ -31,10 +31,7 @@ namespace LP1
             }
             return desiredCoordinate;
         }
-
-        
-
-        public void compare(Board board, Position position, int color)
+        public void Compare(Board board, Position position, int color)
         {
             if (ghost1.GhostState[position.Row, position.Column] == State.none)
             {
@@ -48,7 +45,6 @@ namespace LP1
                     }
                     else checkIfMatch = false;
                 }
-
                 else if (color == 2 && redGhosts < 3)
                 {
                     if (board.state[position.Row, position.Column] == State.red )
@@ -59,7 +55,6 @@ namespace LP1
                     }
                     else checkIfMatch = false;
                 }
-
                 else if (color == 3 && yellowGhosts < 3)
                 {
                     if (board.state[position.Row, position.Column] == State.yellow )
@@ -70,7 +65,6 @@ namespace LP1
                     }
                     else checkIfMatch = false;
                 }
-
                 else
                 {
                     if (color > 3) Console.WriteLine("You can only pick 1,2 or 3");
