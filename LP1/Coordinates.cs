@@ -10,13 +10,13 @@ namespace LP1
     class Coordinates
     {
         /// <summary>
-        /// 
+        /// Checks the number given and checks it against all the possible cases
         /// </summary>
-        /// <param name="position"></param>
-        /// <returns></returns>
+        /// <param name="position">Integer the user gave it in Player class sent in as a parameter</param>
+        /// <returns>The Position in form of (y,x)</returns>
         public Position CheckPos(int position)
         {
-            //
+            //Compares the position given to all the cases and returns it's corresponding coordinate
             switch (position)
             {
                 case 1: return new Position(0, 0);
@@ -48,7 +48,7 @@ namespace LP1
                 case 23: return new Position(4, 2);
                 case 24: return new Position(4, 3);
                 case 25: return new Position(4, 4);
-                //
+                //If it doesn't match any of the cases returns null
                 default: return null;
             }
         }

@@ -22,7 +22,7 @@ namespace LP1
                 if (rotation == 2) targetPlayer.ghost1.GhostState[1, 2] = State.none;
                 if (rotation == 3) targetPlayer.ghost1.GhostState[0, 1] = State.none;
 
-                targetPlayer.redGhosts ++;
+                targetPlayer.redGhosts --;
                 Console.WriteLine("\n Player {0} wins", playerNumber);
             }
 
@@ -34,7 +34,7 @@ namespace LP1
                 if (rotation == 2) targetPlayer.ghost1.GhostState[3, 2] = State.none;
                 if (rotation == 3) targetPlayer.ghost1.GhostState[4, 3] = State.none;
 
-                targetPlayer.blueGhosts++;
+                targetPlayer.blueGhosts--;
                 Console.WriteLine("\n Player {0} wins", playerNumber);
             }
 
@@ -46,11 +46,14 @@ namespace LP1
                 if (rotation == 2) targetPlayer.ghost1.GhostState[2, 3] = State.none;
                 if (rotation == 3) targetPlayer.ghost1.GhostState[1, 4] = State.none;
 
-                targetPlayer.yellowGhosts++;
+                targetPlayer.yellowGhosts--;
                 Console.WriteLine("\n Player {0} wins", playerNumber);
             }
-            if (targetPlayer.redGhosts >= 3 || targetPlayer.blueGhosts >= 3 ||
-                targetPlayer.yellowGhosts >= 3) return false;
+            Console.WriteLine(targetPlayer.redGhosts);
+            Console.WriteLine(targetPlayer.blueGhosts);
+            Console.WriteLine(targetPlayer.yellowGhosts);
+            if (targetPlayer.redGhosts <= 0 || targetPlayer.blueGhosts <= 0 ||
+                targetPlayer.yellowGhosts <= 0) return false;
             return true;
         }
     }

@@ -20,7 +20,7 @@ namespace LP1
         /// </summary>
         /// <param name="player1"></param>
         /// <param name="player2"></param>
-        public void Move(Player player1, Player player2)
+        public void Move(Player currentPlayer, Player targetPlayer)
         {
             //
             Console.WriteLine("Where's the ghost you want to move?");

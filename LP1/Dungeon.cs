@@ -7,7 +7,7 @@ namespace LP1
     public class Dungeon
     {
         public int[] numberOfGhosts = new int[16];
-
+        
         public void DungeonGhosts(int color)
         {
             for (int a = 0; a < 16; a++)
@@ -29,7 +29,7 @@ namespace LP1
                     numberOfGhosts[a] = 0;
                     return true;
                 }
-                else
+                else if (numberOfGhosts[a] != color)
                 {
                     Console.WriteLine("There's no ghost of that color");
                     return false;
