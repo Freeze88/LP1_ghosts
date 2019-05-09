@@ -33,7 +33,6 @@ namespace LP1
                 while (canPlace != true)
                 {
                     Console.WriteLine("Please choose a valid place to put your ghost");
-                    ghost1.GhostState[desiredCoordinate.Row, desiredCoordinate.Column] = State.none;
                     GetPosition(targetPlayer, ghost, Start);
                 }
                 return desiredCoordinate;
