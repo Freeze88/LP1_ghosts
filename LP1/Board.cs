@@ -35,6 +35,7 @@ namespace LP1
                         case 4: state[j, i] = State.mirror; break;
                         case 5: state[j, i] = State.portal; break;
                     }
+
                 }
             }
         }

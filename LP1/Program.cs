@@ -22,7 +22,7 @@ namespace LP1
             //player1.GetPosition(ghosts);
             for (int i = 0; i < 1; i++)
             {
-                renderer.Render(board);
+                renderer.Render(board,player1,player2);
 
                 Console.WriteLine("Player 1 Turn");
                 posP1 = player1.GetPosition(ghosts);
@@ -65,13 +65,12 @@ namespace LP1
                     loop = checker.CheckNearExit(player2, player1, move);
                     if (loop == false) break;
 
-                    renderer.Render(board);
 
                     move.Move(player1, player2);
                     move.Move(player2, player1);
 
                 }
-
+                
 
             }
         }
