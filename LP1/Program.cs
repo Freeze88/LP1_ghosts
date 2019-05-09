@@ -61,26 +61,14 @@ namespace LP1
 
                 while (loop)
                 {
-                    loop = checker.CheckNearExit(player1, player2);
+                    loop = checker.CheckNearExit(player1, player2, move);
+                    loop = checker.CheckNearExit(player2, player1, move);
                     if (loop == false) break;
-
-
-                    Console.WriteLine(player1.ghost1.GhostState[0, 0]);
-                    Console.WriteLine(player1.ghost1.GhostState[0, 1]);
-                    Console.WriteLine(player1.ghost1.GhostState[0, 2]);
-                    Console.WriteLine(player1.ghost1.GhostState[0, 3]);
-                    Console.WriteLine(player1.ghost1.GhostState[0, 4]);
-                    Console.WriteLine("\n");
-                    Console.WriteLine(player2.ghost1.GhostState[0, 0]);
-                    Console.WriteLine(player2.ghost1.GhostState[0, 1]);
-                    Console.WriteLine(player2.ghost1.GhostState[0, 2]);
-                    Console.WriteLine(player2.ghost1.GhostState[0, 3]);
-                    Console.WriteLine(player2.ghost1.GhostState[0, 4]);
 
                     renderer.Render(board);
 
-                    move.MoveP1(player1, player2);
-                    move.MoveP2(player1, player2);
+                    move.Move(player1, player2);
+                    move.Move(player2, player1);
 
                 }
 
