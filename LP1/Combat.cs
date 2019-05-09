@@ -5,7 +5,7 @@ using System.Text;
 namespace LP1
 {
     /// <summary>
-    /// 
+    /// This class add the combat and determines all the possibles outcomes of the fight
     /// </summary>
     public class Combat
     {
@@ -28,7 +28,7 @@ namespace LP1
             {
                 //
                 rotation++;
-                //
+                //Print this message if player 1 wins the combat
                 Console.WriteLine("Winner is Player1");
                 //
                 player2.ghost1.GhostState[position2.Row, position2.Column] = State.none;
@@ -39,7 +39,7 @@ namespace LP1
             {
                 //
                 rotation++;
-                //
+                //Print this message if player 1 wins the combat
                 Console.WriteLine("Winner is Player1");
                 //
                 player2.ghost1.GhostState[position2.Row, position2.Column] = State.none;
@@ -50,7 +50,7 @@ namespace LP1
             {
                 //
                 rotation++;
-                //
+                //Print this message if player 1 wins the combat
                 Console.WriteLine("Winner is Player1");
                 //
                 player2.ghost1.GhostState[position2.Row, position2.Column] = State.none;

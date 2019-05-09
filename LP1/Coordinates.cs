@@ -5,7 +5,7 @@ using System.Text;
 namespace LP1
 {
     /// <summary>
-    /// This class convert the player' input and stores them in a new Position
+    /// This class convert the player input and stores them in a new Position
     /// </summary>
     class Coordinates
     {
